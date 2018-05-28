@@ -184,6 +184,29 @@
                         </tr>
                     </tbody>
                 </table>
+                <c:if test="${briTel!=null}">
+                    <table id="bringer-info" class="table table-responsive table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th colspan="2">带客信息</th>
+                        </tr>
+                        </thead>
+                        <tbody style="background-color: transparent;">
+                        <tr>
+                            <td width="20%">带客手机:</td>
+                            <td>${briTel}</td>
+                        </tr>
+                        <tr>
+                            <td>真实姓名:</td>
+                            <td>${briRealName}</td>
+                        </tr>
+                        <tr>
+                            <td>地址:</td>
+                            <td>${briAdd.campus}${briAdd.build}栋${briAdd.room}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </c:if>
                     <input type="text" hidden="hidden" id="firmId" value="${firm.firmId}">
             </div>
         </div>

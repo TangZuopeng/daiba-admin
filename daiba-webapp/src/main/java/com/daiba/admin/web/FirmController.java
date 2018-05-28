@@ -4,7 +4,10 @@ import com.daiba.admin.base.AdminBaseController;
 import com.daiba.firm.model.Firm;
 import com.daiba.firm.service.FirmService;
 import com.daiba.global.DataTableResultVO;
+import com.daiba.user.model.Address;
+import com.daiba.user.model.Qualification;
 import com.daiba.user.service.BringerService;
+import com.daiba.user.service.PersonalService;
 import com.daiba.user.service.UserService;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
@@ -33,6 +36,12 @@ public class FirmController extends AdminBaseController{
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    PersonalService personalService;
+
+    @Autowired
+    BringerService bringerService;
 
     @RequestMapping(value = "/firm",method = {RequestMethod.GET})
     public String firmList(){
@@ -64,7 +73,11 @@ public class FirmController extends AdminBaseController{
             int briId= firm.getBriId();
             if(orderState==1||orderState==2){
                 String briTel=userService.getUserInfoByBriId(briId).getPhoneNum();
-                request.setAttribute("briTel",briTel);
+                String briRealName = personalService.getBringerRealName(briId);
+                Address briAdd = bringerService.getBrierAddress(briId);
+                request.setAttribute("briTel", briTel);
+                request.setAttribute("briRealName", briRealName);
+                request.setAttribute("briAdd", briAdd);
             }else{
                 request.setAttribute("briTel",null);
             }

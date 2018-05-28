@@ -102,10 +102,12 @@
                     "data": "order.acceptAddCode",
                     "render": function (data, type, full) {
                         var campusCode = data.substring(0, 2);
-                        if (campusCode == '11') {
-                            return "南湖校区"
-                        } else if (campusCode == '12') {
-                            return "林园校区"
+                        if (campusCode == '10') {
+                            return "南湖校区";
+                        } else if (campusCode == '11') {
+                            return "林园校区";
+                        } else if (campusCode == '11') {
+                            return "北湖校区";
                         }
                     }
                 },
@@ -113,7 +115,7 @@
                     "data": 'giveTime',
                     "render": function (data, type, full) {
                         var date = new Date();
-                        date.setTime(data.time)
+                        date.setTime(data.time);
                         return format(date, "yyyy-MM-dd    hh:mm:ss");
                     }
                 },
@@ -150,6 +152,9 @@
                                 break;
                             case 31:
                                 return "外卖";
+                                break;
+                            default:
+                                return "其他";
                                 break;
                         }
                     }

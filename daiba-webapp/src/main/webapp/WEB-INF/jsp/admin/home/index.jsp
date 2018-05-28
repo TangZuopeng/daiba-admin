@@ -66,11 +66,11 @@
                 <table id="check-list" class="table table-responsive table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th>序号</th>
-                        <th>学号</th>
-                        <th>地址</th>
-                        <th>端口</th>
-                        <th>时间</th>
+                        <th>手机号</th>
+                        <th>昵称</th>
+                        <th>注册时间</th>
+                        <th>最近登录时间</th>
+                        <th>性别</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -115,23 +115,33 @@
             "ajax": function (data, fnCallback) {
                 //加载首页数据
                 $.ajax({
-                    "url": basePath + "",
+                    "url": basePath + "/Admin/loadHome.do",
                     "dataType": 'json',
                     "type": "POST",
                     "success": function (result) {
-                        result.data = result.resultList;
+
                         fnCallback(result);
                     },
                     "error": function () {
+                        alert("error");
                     }
                 });
             },
             "columns": [
-                { data: "id" },
-                { data: "account" },
-                { data: "address" },
-                { data: "port" },
-                { data: 'checkTime'}
+                { data: "phoneNum" },
+                { data: "name" },
+                { data: "registerTime" },
+                { data: "recetly_login_time" },
+                { data: 'sex'}
+            ],
+            "columnDefs": [
+                {
+                    "targets": [8],
+                    "data": "phoneNum",
+                    "render": function (data, type, full) {
+                        return "<a href='<%=basePath%>Admin/lookupFirmDetail?firmId=" + data + "'>查看详情</a>";
+                    }
+                }
             ]
         });
         table.on( 'order.dt search.dt', function () {

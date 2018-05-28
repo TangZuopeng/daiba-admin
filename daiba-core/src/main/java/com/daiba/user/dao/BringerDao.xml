@@ -14,6 +14,12 @@
         SELECT bringer_id,week_income FROM bringer WHERE week_income > 0
     </select>
 
+    <select id="selectAddressByBriId" resultMap="addressResult">
+        SELECT school,campus,build,room FROM qualification q,address a
+        WHERE a.qualification_id = q.qualification_id
+        AND q.bri_id=#{briId}
+    </select>
+
     <parameterMap id="bringerParameter" type="Bringer">
         <parameter property="bringerId" resultMap="bringerResult"/>
         <parameter property="acceptCount" resultMap="bringerResult"/>
@@ -25,6 +31,15 @@
         <parameter property="weekIncome" resultMap="bringerResult"/>
     </parameterMap>
 
+    <parameterMap id="addressParameter" type="Address">
+        <parameter property="addressId" resultMap="addressResult"/>
+        <parameter property="qualificationId" resultMap="addressResult"/>
+        <parameter property="school" resultMap="addressResult"/>
+        <parameter property="campus" resultMap="addressResult"/>
+        <parameter property="build" resultMap="addressResult"/>
+        <parameter property="room" resultMap="addressResult"/>
+    </parameterMap>
+
     <resultMap id="bringerResult" type="Bringer">
         <id column="bringer_id" property="bringerId" jdbcType="INTEGER"/>
         <result column="accept_count" property="acceptCount" jdbcType="INTEGER"/>
@@ -34,6 +49,15 @@
         <result column="good_rep_count" property="goodRepCount" jdbcType="INTEGER"/>
         <result column="income" property="income" jdbcType="INTEGER"/>
         <result column="week_income" property="weekIncome" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <resultMap id="addressResult" type="Address">
+        <result column="address_id" property="addressId" jdbcType="INTEGER"/>
+        <result column="qualification_id" property="qualificationId" jdbcType="INTEGER"/>
+        <result column="school" property="school" jdbcType="VARCHAR"/>
+        <result column="campus" property="campus" jdbcType="VARCHAR"/>
+        <result column="build" property="build" jdbcType="VARCHAR"/>
+        <result column="room" property="room" jdbcType="VARCHAR"/>
     </resultMap>
 
 </mapper>
