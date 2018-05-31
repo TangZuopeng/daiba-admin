@@ -55,7 +55,7 @@
                 </li>
                 <%--意见反馈--%>
                 <li class="bg-palette4">
-                    <a href="<%=basePath%>info/options">
+                    <a href="<%=basePath%>Admin/todayData">
                         <span class="menu-content block">
                             <span class="menu-icon"><i class="block fa fa-envelope fa-lg"></i></span>
                             <span class="text m-left-sm">今日数据</span>
