@@ -1,6 +1,4 @@
-package com.daiba.data.service;
-
-import javax.servlet.http.HttpServletRequest;
+package com.daiba.todaydata.service;
 
 /**
  * Created by dolphinzhou on 2016/10/16.

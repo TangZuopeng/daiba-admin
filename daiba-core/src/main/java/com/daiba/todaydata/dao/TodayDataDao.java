@@ -1,6 +1,6 @@
-package com.daiba.data.dao;
+package com.daiba.todaydata.dao;
 
-import com.daiba.data.model.TodayData;
+import com.daiba.todaydata.model.TodayData;
 import com.daiba.mybatis.MyBatisScan;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,7 +16,7 @@ public interface TodayDataDao {
      * @param date
      * @return
      */
-    public TodayData getTodayData(@Param("date") Date date);
+//    public TodayData getTodayData(@Param("date") Date date);
 
     /**
      * 更新管理员最近登录时间

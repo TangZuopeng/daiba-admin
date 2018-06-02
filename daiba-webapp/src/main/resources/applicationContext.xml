@@ -39,7 +39,8 @@
                          com.daiba.order.model,
                          com.daiba.place.model,
                          com.daiba.status.model,
-                         com.daiba.user.model">
+                         com.daiba.user.model,
+                         com.daiba.todaydata.model">
         </property>
     </bean>
 

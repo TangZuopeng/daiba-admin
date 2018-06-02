@@ -1,7 +1,7 @@
-package com.daiba.data.service.impl;
+package com.daiba.todaydata.service.impl;
 
-import com.daiba.data.dao.TodayDataDao;
-import com.daiba.data.service.TodayDataService;
+import com.daiba.todaydata.dao.TodayDataDao;
+import com.daiba.todaydata.service.TodayDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by dolphinzhou on 2016/10/16.
  */
-@Service("adminService")
+@Service("todayDateService")
 public class TodayDataServiceImpl implements TodayDataService {
 
     @Autowired

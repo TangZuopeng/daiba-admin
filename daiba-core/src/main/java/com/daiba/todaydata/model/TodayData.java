@@ -1,4 +1,4 @@
-package com.daiba.data.model;
+package com.daiba.todaydata.model;
 
 
 /**
