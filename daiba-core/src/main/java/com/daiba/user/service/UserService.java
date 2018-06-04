@@ -5,6 +5,7 @@ import com.daiba.user.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,6 +62,13 @@ public interface UserService {
     public User getSendUserInfo(int id);
 
     /**
+     * 根据手机号获取用户信息
+     * @param phoneNum
+     * @return
+     */
+    public User getUserInfoByPhoneNum(String phoneNum);
+
+    /**
      * 根据带客 ID 获取接单人简要信息
      *
      * @param bringerId
@@ -100,6 +108,8 @@ public interface UserService {
     public List<String> getAllOpenId(String role);
 
     public List<User> getAllUserInfo();
+
+    public List<User> getUserInfoByTime(Date startTime, Date endTime);
 
     public User getUserInfoByBriId(int briId);
 

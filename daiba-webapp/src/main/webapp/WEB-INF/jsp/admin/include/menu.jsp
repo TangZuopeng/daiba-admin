@@ -13,16 +13,7 @@
     <div class="sidebar-inner scrollable-sidebar">
         <div class="main-menu">
             <ul class="accordion">
-                <%--主页跳转--%>
-                <li class="bg-palette1">
-                    <a href="<%=basePath%>Admin/home">
-                        <span class="menu-content block">
-                            <span class="menu-icon"><i class="block fa fa-home fa-lg"></i></span>
-                            <span class="text m-left-sm">主页</span>
-                        </span>
-                        <span class="menu-content-hover block">主页</span>
-                    </a>
-                </li>
+
                 <%--发布通知--%>
                 <li class="bg-palette2">
                     <a href="<%=basePath%>Admin/user">

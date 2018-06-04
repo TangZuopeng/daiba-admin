@@ -50,7 +50,7 @@ public class FirmController extends AdminBaseController{
 
     @RequestMapping(value = "/loadFirms.do",method = {RequestMethod.POST})
     @ResponseBody
-    public String loadFirms(HttpServletRequest request, HttpServletResponse response){
+    public String loadFirms(){
         try {
             List<Firm> firms=firmService.loadFirmsToAdmin();
             DataTableResultVO<Firm> result=new DataTableResultVO<>();

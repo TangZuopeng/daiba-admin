@@ -194,6 +194,10 @@ public class UserServiceImpl implements UserService {
         return userDao.selectSendUserInfo(id);
     }
 
+    public User getUserInfoByPhoneNum(String phoneNum) {
+        return userDao.selectByPhoneNum(phoneNum);
+    }
+
     @Override
     public User getAcceptUserInfo(int bringerId) {
         return userDao.selectAcceptUserInfo(bringerId);
@@ -274,6 +278,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUserInfo() {
         return userDao.selectAllUserInfo();
+    }
+
+    @Override
+    public List<User> getUserInfoByTime(Date startTime, Date endTime) {
+        return userDao.selectAllUserInfoByTime(startTime, endTime);
     }
 
     @Override

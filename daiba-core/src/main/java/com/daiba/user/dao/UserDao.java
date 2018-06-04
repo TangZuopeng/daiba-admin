@@ -4,6 +4,7 @@ import com.daiba.mybatis.MyBatisScan;
 import com.daiba.user.model.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -113,4 +114,6 @@ public interface UserDao {
     public List<User> selectAllUserInfo();
 
     public User selectUserByBriId(@Param("briId") int briId);
+
+    public List<User> selectAllUserInfoByTime(@Param("startTime")Date startTime, @Param("startTime")Date endTime);
 }

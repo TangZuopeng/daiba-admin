@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>用户</title>
+    <title>带吧网络后台管理</title>
     <%@include file="../include/common.jsp" %>
 </head>
 <body class="overflow-hidden">
@@ -25,7 +25,7 @@
                     <i class="fa fa-home fa-lg"></i>
                     <a href="<%=basePath%>Admin/home">&nbsp; 首页</a>
                     <i class="fa fa-angle-right"></i>
-                    <a href="<%=basePath%>Admin/user">订单</a>
+                    <a href="<%=basePath%>Admin/firm">订单</a>
                 </div>
                 <span class="pull-right font-18" id="nowTime"></span>
             </div>
@@ -33,11 +33,11 @@
                 <table id="firm-list" class="table table-responsive table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th>订单号</th>
+                        <th>序号</th>
                         <th>校区</th>
                         <th>下单时间</th>
                         <th>发单人</th>
-                        <th>带客</th>
+                        <th>收货人</th>
                         <th>订单状态</th>
                         <th>订单类型</th>
                         <th>金额</th>
@@ -186,8 +186,8 @@
     function setNowTime() {
         var nowDate = format(new Date(), "yyyy-MM-dd    hh:mm:ss");
         $("#nowTime").html(nowDate);
-        var nowCountdown = "离下一次刷新还有 " + setCountdown() + " s";
-        $("#countdown").html(nowCountdown);
+//        var nowCountdown = "离下一次刷新还有 " + setCountdown() + " s";
+//        $("#countdown").html(nowCountdown);
     }
 
 </script>
