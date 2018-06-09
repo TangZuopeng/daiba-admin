@@ -4,7 +4,9 @@ import com.daiba.admin.base.AdminBaseController;
 import com.daiba.firm.model.Firm;
 import com.daiba.global.DataTableResultVO;
 import com.daiba.user.model.Address;
+import com.daiba.user.model.Qualification;
 import com.daiba.user.model.User;
+import com.daiba.user.service.PersonalService;
 import com.daiba.user.service.UserService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class UserController extends AdminBaseController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PersonalService personalService;
 
     @RequestMapping("/loadUser.do")
     @ResponseBody
@@ -51,7 +56,8 @@ public class UserController extends AdminBaseController {
             User user = userService.getUserInfoByPhoneNum(phoneNum);
             String role = user.getRole();
             if("带客".equals(role)){
-
+                Qualification qualification = personalService.getQualificationInfo(user.getUserId());
+                request.setAttribute("qualification",qualification);
             }
             request.setAttribute("user",user);
             return new ModelAndView("admin/user/lookUser");

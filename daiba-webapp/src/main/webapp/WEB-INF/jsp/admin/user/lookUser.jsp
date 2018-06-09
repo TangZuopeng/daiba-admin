@@ -84,99 +84,32 @@
                     </tbody>
                 </table>
 
-                <table id="firm-info" class="table table-responsive table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th colspan="2">订单信息</th>
-                        </tr>
-                    </thead>
-                    <tbody style="background-color: transparent;">
-                        <tr>
-                            <td width="20%">取件地址:</td>
-                            <td>${firm.order.company}</td>
-                        </tr>
-                        <tr>
-                            <td>送达地址:</td>
-                            <td>${firm.address}</td>
-                        </tr>
-                        <tr>
-                            <td>要求时间:</td>
-                            <td id="askTime">
-                                <c:choose>
-                                    <c:when test="${null==firm.askTime||firm.askTime==''}">
-                                        无
-                                    </c:when>
-                                    <c:otherwise>
-                                        <script>
-                                            var d=new Date();
-                                            d.setTime("${firm.askTime.time}");
-                                            var askTime=format(d,"yyyy-MM-dd    hh:mm:ss");
-                                            $("#askTime").text(askTime);
-                                        </script>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>收货人:</td>
-                            <td>${firm.order.receiver}</td>
-                        </tr>
-                        <tr>
-                            <td>取件号:</td>
-                            <td>${firm.order.takeNum}</td>
-                        </tr>
-                        <tr>
-                            <td>手机号:</td>
-                            <td>${firm.order.reservedPhone}</td>
-                        </tr>
-                        <tr>
-                            <td>订单类型:</td>
-                            <td>
-                                <c:if test="${firm.order.staId==30}">
-                                    快递
-                                </c:if>
-                                <c:if test="${firm.order.staId==31}">
-                                    外卖
-                                </c:if>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <c:if test="${briTel!=null}">
+                <c:if test="${qualification!=null}">
                     <table id="bringer-info" class="table table-responsive table-hover table-bordered">
                         <thead>
                         <tr>
-                            <th colspan="2">带客信息</th>
+                            <th colspan="2">认证信息</th>
                         </tr>
                         </thead>
                         <tbody style="background-color: transparent;">
                         <tr>
-                            <td width="20%">带客手机:</td>
-                            <td>${briTel}</td>
-                        </tr>
-                        <tr>
                             <td>真实姓名:</td>
-                            <td>${briRealName}</td>
+                            <td>${qualification.realName}</td>
                         </tr>
                         <tr>
-                            <td>地址:</td>
-                            <td>${briAdd.campus}${briAdd.build}栋${briAdd.room}</td>
+                            <td>学号:</td>
+                            <td>${qualification.studentNum}</td>
                         </tr>
                         </tbody>
                     </table>
                 </c:if>
-                    <input type="text" hidden="hidden" id="firmId" value="${firm.firmId}">
+
+                <input type="text" hidden="hidden" id="firmId" value="${firm.firmId}">
             </div>
         </div>
 
-        <c:choose>
-            <c:when test="${firm.orderState==0||firm.orderState==1}">
-                <button type="button" class="btn btn-default" id="cancelFirmBtn">取消订单</button>
-            </c:when>
-            <c:otherwise>
-                <button type="button" class="btn btn-default" id="deleteFirmBtn">删除订单</button>
-            </c:otherwise>
-        </c:choose>
+        <button type="submit" class="btn btn-success marginTB-xs">Success</button>
+        <button type="button" class="btn btn-default" id="deleteFirmBtn">删除用户</button>
 
     </div>
 
@@ -188,7 +121,7 @@
     $(function (){
         //取消订单触发的事件
         $("#cancelFirmBtn").click(function () {
-         alert(1);
+            alert(1);
         });
 
         //删除订单触发的事件

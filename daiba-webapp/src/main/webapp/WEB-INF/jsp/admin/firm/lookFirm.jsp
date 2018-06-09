@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>用户</title>
+    <title>带吧网络后台管理</title>
     <%@include file="../include/common.jsp" %>
 </head>
 <body class="overflow-hidden">
@@ -35,8 +35,8 @@
                 <a href="#">发单人:<spam>${firm.order.reservedPhone}</spam></a><br>
                 <a href="#">
 
-                        <c:if test="${briTel!=null}">
-                            带客:<spam> ${briTel}</spam>
+                        <c:if test="${bringer!=null}">
+                            带客:<spam> ${bringer.phoneNum}</spam>
                         </c:if>
                 </a><br>
                 <table id="base-info" class="table table-responsive table-hover table-bordered">
@@ -213,10 +213,10 @@
 
         <c:choose>
             <c:when test="${firm.orderState==0||firm.orderState==1}">
-                <button type="button" class="btn btn-default" id="cancelFirmBtn">取消订单</button>
+                <button id="cancelFirmBtn" type="submit" class="btn btn-success marginTB-xs">取消订单</button>
             </c:when>
             <c:otherwise>
-                <button type="button" class="btn btn-default" id="deleteFirmBtn">删除订单</button>
+                <button id="deleteFirmBtn" type="submit" class="btn btn-success marginTB-xs">删除订单</button>
             </c:otherwise>
         </c:choose>
 
@@ -228,9 +228,57 @@
 <script type="text/javascript" src="<c:url value="/admin/pulgins/DataTables-1.10.11/media/js/jquery.dataTables.js"/>"></script>
 <script>
     $(function (){
+
+        function cancelOrder() {
+            $.ajax({
+                url: basePath + "/Admin/cancelFirm.do",
+                data: {
+                    firmId: "${firm.firmId}",
+                    userId: ${firm.user.userId}
+                },
+                dataType: "json",
+                type: "POST",
+                async: false,
+                success: function (result) {
+                    if (result.cancelMessage == 1) {
+                        alert('取消订单成功！');
+                        location.reload();
+                    } else if (result.cancelMessage == 2) {
+                        alert('取消订单失败，该订单不是可取消状态');
+                    } else if (result.cancelMessage == 3) {
+                        alert('取消订单失败，该订单不存在，可能被删除');
+                    } else if (result.cancelMessage == 4) {
+                        alert('权限异常！');
+                    }
+                },
+                error: function () {
+                    mui.toast('取消订单失败，请检查网络是否正常');
+                }
+            });
+        }
+
         //取消订单触发的事件
         $("#cancelFirmBtn").click(function () {
-         alert(1);
+            $.ajax({
+                url: basePath + "/WeiXin/pay/cancelOrder.do",
+                data: {
+                    out_trade_no: "${firm.firmId}",
+                    total_fee: ${firm.orderMoney}
+                },
+                dataType: "json",
+                type: "POST",
+                async: false,
+                success: function (result) {
+                    if (result) {
+                        cancelOrder();
+                    } else {
+                        alert("退款失败！");
+                    }
+                },
+                error: function () {
+                    alert("退款失败！");
+                }
+            });
         });
 
         //删除订单触发的事件

@@ -20,7 +20,7 @@
     </select>
 
     <select id="selectByPhoneNum" parameterType="java.lang.String" resultMap="userResult">
-        SELECT phone_num,name,sex,role,register_time,recetly_login_time,order_num,spending,open_id FROM user WHERE phone_num=#{phoneNum}
+        SELECT user_id,phone_num,name,sex,role,register_time,recetly_login_time,order_num,spending,open_id FROM user WHERE phone_num=#{phoneNum}
     </select>
 
     <select id="selectIdByPhoneNum" parameterType="java.lang.String" resultType="java.lang.String">
