@@ -50,7 +50,7 @@
 
     <!-- 订单详情 -->
     <select id="selectFirmDetail" resultMap="firmResultMap">
-        SELECT f.firm_id,f.bri_id,f.use_id,f.address,f.ask_time,f.remark,f.order_money,f.order_state,f.give_time,f.is_apply_cancel,f.goods_money,
+        SELECT f.firm_id,f.bri_id,f.use_id,f.address,f.ask_time,f.remark,f.order_money,f.order_state,f.give_time,f.goods_money,
                 o.receiver,o.take_num,o.reserved_phone,o.accept_add_code,o.company,o.sta_id,o.accept_address,o.content,
                 u.user_id,u.phone_num,u.name,u.open_id
         FROM firm f,orders o,user u

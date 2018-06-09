@@ -2,6 +2,7 @@ package com.daiba.user.model;
 
 import com.daiba.firm.model.Firm;
 import com.daiba.option.model.Option;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -32,7 +33,6 @@ public class User {
     /**
      * 注册时间
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date registerTime;
     /**
      * 角色、默认普通用户
@@ -41,7 +41,6 @@ public class User {
     /**
      * 最近登录时间(默认注册时间)
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date recetlyLoginTime;
     /**
      * 发单数
@@ -133,6 +132,7 @@ public class User {
         this.portrait = portrait;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getRegisterTime() {
         return registerTime;
     }
@@ -149,6 +149,7 @@ public class User {
         this.role = role;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getRecetlyLoginTime() {
         return recetlyLoginTime;
     }

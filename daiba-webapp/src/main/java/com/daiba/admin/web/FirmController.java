@@ -6,9 +6,11 @@ import com.daiba.firm.service.FirmService;
 import com.daiba.global.DataTableResultVO;
 import com.daiba.user.model.Address;
 import com.daiba.user.model.Qualification;
+import com.daiba.user.model.User;
 import com.daiba.user.service.BringerService;
 import com.daiba.user.service.PersonalService;
 import com.daiba.user.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import net.sf.json.JSONObject;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,13 @@ import sun.misc.Request;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.daiba.utils.JSONUtils.objectMapper;
 
 /**
  * Created by Administrator on 2016/12/28.
@@ -50,7 +56,7 @@ public class FirmController extends AdminBaseController{
 
     @RequestMapping(value = "/loadFirms.do",method = {RequestMethod.POST})
     @ResponseBody
-    public String loadFirms(HttpServletRequest request, HttpServletResponse response){
+    public String loadFirms(){
         try {
             List<Firm> firms=firmService.loadFirmsToAdmin();
             DataTableResultVO<Firm> result=new DataTableResultVO<>();
@@ -72,14 +78,14 @@ public class FirmController extends AdminBaseController{
             int orderState=firm.getOrderState();
             int briId= firm.getBriId();
             if(orderState==1||orderState==2){
-                String briTel=userService.getUserInfoByBriId(briId).getPhoneNum();
+                User bringer=userService.getAcceptUserInfo(briId);
                 String briRealName = personalService.getBringerRealName(briId);
                 Address briAdd = bringerService.getBrierAddress(briId);
-                request.setAttribute("briTel", briTel);
+                request.setAttribute("bringer", bringer);
                 request.setAttribute("briRealName", briRealName);
                 request.setAttribute("briAdd", briAdd);
             }else{
-                request.setAttribute("briTel",null);
+                request.setAttribute("bringer",null);
             }
             request.setAttribute("firm",firm);
             return new ModelAndView("admin/firm/lookFirm");
@@ -87,5 +93,28 @@ public class FirmController extends AdminBaseController{
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 取消订单
+     *
+     * @param session
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/cancelFirm.do", method = {RequestMethod.POST})
+    @ResponseBody
+    public String cancelFirm(HttpSession session, HttpServletRequest request) {
+        Map<String, Object> cancelMessages = new HashMap<String, Object>();
+        String firmId = request.getParameter("firmId");
+        String userId = request.getParameter("userId");
+        User user = userService.getSendUserInfo(Integer.parseInt(userId));
+        int flag = firmService.cancelFirm(firmId, user.getPhoneNum());
+        cancelMessages.put("cancelMessage", flag);
+        try {
+            return objectMapper.writeValueAsString(cancelMessages);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

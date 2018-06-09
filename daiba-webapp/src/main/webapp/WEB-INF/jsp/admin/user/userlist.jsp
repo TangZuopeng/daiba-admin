@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>用户</title>
+    <title>带吧网络后台管理</title>
     <%@include file="../include/common.jsp" %>
 </head>
 <body class="overflow-hidden">
@@ -31,14 +31,16 @@
             </div>
 
             <div class="container-fluid margin-md">
-                <table id="check-list" class="table table-responsive table-hover table-bordered">
+                <table id="user-list" class="table table-responsive table-hover table-bordered">
                     <thead>
                         <tr>
+                            <th>序号</th>
                             <th>手机号</th>
                             <th>昵称</th>
                             <th>角色</th>
-                            <th>校区</th>
-                            <th>openid</th>
+                            <th>性别</th>
+                            <th>发单数</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -55,7 +57,7 @@
 <script>
     $(function () {
         window.setInterval(setNowTime, 1000);
-        var table = $("#check-list").DataTable({
+        var table = $("#user-list").DataTable({
             "bStateSave": true,
             "order": [[ 1, 'asc' ]],
             "autoWidth": true,   // enable/disable fixed width and enable fluid table
@@ -82,24 +84,41 @@
             },
             "ajax": function (data, fnCallback) {
                 $.ajax({
-                    "url": basePath + "checkIn/findAllInfoList",
+                    "url": basePath + "/Admin/loadUser.do",
                     "dataType": 'json',
                     "type": "POST",
                     "success": function (result) {
-                        result.data = result.resultList;
                         fnCallback(result);
-
                     },
                     "error": function () {
                     }
                 });
             },
             "columns": [
-                { data: "id" },
-                { data: "account" },
-                { data: "address" },
-                { data: "port" },
-                { data: 'checkTime'}
+                { data: "phoneNum", "bSortable": false},
+                { data: "phoneNum", "bSortable": false},
+                { data: "name", "bSortable": false},
+                { data: "role"},
+                {
+                    "data": "sex",
+                    "render": function (data, type, full) {
+                        if (data == 1) {
+                            return "男";
+                        } else {
+                            return "女";
+                        }
+                    }
+                },
+                { data: 'orderNum'}
+            ],
+            "columnDefs": [
+                {
+                    "targets": [6],
+                    "data": "phoneNum",
+                    "render": function (data, type, full) {
+                        return "<a href='<%=basePath%>Admin/lookupUserDetail?phoneNum=" + data + "'>查看详情</a>";
+                    }
+                }
             ]
         });
         table.on( 'order.dt search.dt', function () {
@@ -112,22 +131,7 @@
     function setNowTime() {
         var nowDate = format(new Date(), "yyyy-MM-dd    hh:mm:ss");
         $("#nowTime").html(nowDate);
-        var nowCountdown = "离下一次刷新还有 " + setCountdown() + " s";
-        $("#countdown").html(nowCountdown);
-    }
-    function format(date, fmt) {
-        var o = {
-            "M+": date.getMonth() + 1,                 //月份
-            "d+": date.getDate(),                    //日
-            "h+": date.getHours(),                   //小时
-            "m+": date.getMinutes(),                 //分
-            "s+": date.getSeconds()                 //秒
-        };
-        if (/(y+)/.test(fmt))
-            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-        for (var k in o)
-            if (new RegExp("(" + k + ")").test(fmt))
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-        return fmt;
+//        var nowCountdown = "离下一次刷新还有 " + setCountdown() + " s";
+//        $("#countdown").html(nowCountdown);
     }
 </script>

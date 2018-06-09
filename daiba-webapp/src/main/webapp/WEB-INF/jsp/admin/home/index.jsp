@@ -1,49 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: tao
-  Date: 16-2-28
-  Time: 上午1:22
+  Date: 2016/12/10
+  Time: 20:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>首页</title>
-    <link rel="stylesheet" href="<c:url value="/admin/pulgins/DataTables-1.10.11/media/css/jquery.dataTables.min.css"/>">
+    <title>用户</title>
     <%@include file="../include/common.jsp" %>
-    <style>
-        body{
-            overflow: hidden;
-        }
-        .main-container{
-            height: 100%;
-            overflow: auto;
-        }
-
-        .padding-md {
-            height: 100%;
-        }
-
-        .container {
-            padding: 0;
-        }
-
-        .two-dimensional{
-            display: table;
-            height: 100%;
-            width: 100%;
-            text-align: center;
-        }
-
-        .two-dimensional > .thumbnail {
-            background: transparent;
-            border: none;
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-    </style>
 </head>
 <body class="overflow-hidden">
 <div class="wrapper preload">
@@ -56,40 +23,26 @@
             <div class="sidebar-fix-bottom clearfix">
                 <div class="pull-left font-16">
                     <i class="fa fa-home fa-lg"></i>
-                    <a href="#">&nbsp; 首页</a>
-                    <i class="fa fa-angle-right"></i>
+                    <a href="<%=basePath%>Admin/home">&nbsp; 首页</a>
                 </div>
                 <span class="pull-right font-18" id="nowTime"></span>
             </div>
 
-            <div class="container-fluid margin-md">
-                <table id="check-list" class="table table-responsive table-hover table-bordered">
-                    <thead>
-                    <tr>
-                        <th>手机号</th>
-                        <th>昵称</th>
-                        <th>注册时间</th>
-                        <th>最近登录时间</th>
-                        <th>性别</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
 
         </div>
     </div>
+
 </div>
 </body>
 </html>
-
-<script src="<c:url value="/admin/pulgins/DataTables-1.10.11/media/js/jquery.dataTables.js"/>"></script>
+<script type="text/javascript"
+        src="<c:url value="/admin/pulgins/DataTables-1.10.11/media/js/jquery.dataTables.js"/>"></script>
 <script>
     $(function () {
         window.setInterval(setNowTime, 1000);
-        var table = $("#check-list").DataTable({
+        var table = $("#home-list").DataTable({
             "bStateSave": true,
-            "order": [[ 1, 'asc' ]],
+            "order": [[1, 'asc']],
             "autoWidth": true,   // enable/disable fixed width and enable fluid table
             "processing": true, // enable/disable display message box on record load
             "language": {
@@ -102,7 +55,7 @@
                 "thousands": ",",
                 "lengthMenu": "显示 _MENU_ 条记录",
                 "loadingRecords": "加载中...",
-                "processing": "Processing...",
+                "processing": "加载中...",
                 "search": "查询:",
                 "zeroRecords": "没有找到匹配记录",
                 "paginate": {
@@ -113,63 +66,45 @@
                 }
             },
             "ajax": function (data, fnCallback) {
-                //加载首页数据
                 $.ajax({
                     "url": basePath + "/Admin/loadHome.do",
                     "dataType": 'json',
                     "type": "POST",
                     "success": function (result) {
-
                         fnCallback(result);
                     },
                     "error": function () {
-                        alert("error");
                     }
                 });
             },
             "columns": [
-                { data: "phoneNum" },
-                { data: "name" },
-                { data: "registerTime" },
-                { data: "recetly_login_time" },
-                { data: 'sex'}
+                {data: "phoneNum", "bSortable": false},
+                {data: "name", "bSortable": false},
+                {data: "registerTime", "bSortable": false},
+                {data: "recetlyLoginTime", "bSortable": false},
+                {data: "role", "bSortable": false},
+                {data: "sex", "bSortable": false}
             ],
             "columnDefs": [
                 {
                     "targets": [8],
-                    "data": "phoneNum",
+                    "data": "firmId",
                     "render": function (data, type, full) {
                         return "<a href='<%=basePath%>Admin/lookupFirmDetail?firmId=" + data + "'>查看详情</a>";
                     }
                 }
             ]
         });
-        table.on( 'order.dt search.dt', function () {
-            table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
-                cell.innerHTML = i+1;
-            } );
-        } ).draw();
+        table.on('order.dt search.dt', function () {
+            table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
     });
 
     function setNowTime() {
         var nowDate = format(new Date(), "yyyy-MM-dd    hh:mm:ss");
         $("#nowTime").html(nowDate);
-//        var nowCountdown = "离下一次刷新还有 " + setCountdown() + " s";
-//        $("#countdown").html(nowCountdown);
     }
-    function format(date, fmt) {
-        var o = {
-            "M+": date.getMonth() + 1,                 //月份
-            "d+": date.getDate(),                    //日
-            "h+": date.getHours(),                   //小时
-            "m+": date.getMinutes(),                 //分
-            "s+": date.getSeconds()                 //秒
-        };
-        if (/(y+)/.test(fmt))
-            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-        for (var k in o)
-            if (new RegExp("(" + k + ")").test(fmt))
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-        return fmt;
-    }
+
 </script>

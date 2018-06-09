@@ -20,7 +20,7 @@
     </select>
 
     <select id="selectByPhoneNum" parameterType="java.lang.String" resultMap="userResult">
-        SELECT * FROM user WHERE phone_num=#{phoneNum}
+        SELECT user_id,phone_num,name,sex,role,register_time,recetly_login_time,order_num,spending,open_id FROM user WHERE phone_num=#{phoneNum}
     </select>
 
     <select id="selectIdByPhoneNum" parameterType="java.lang.String" resultType="java.lang.String">
@@ -46,6 +46,10 @@
     <resultMap id="userResult" type="User">
         <id column="user_id" property="userId"/>
         <result column="phone_num" property="phoneNum"/>
+        <result column="sex" property="sex"/>
+        <result column="order_num" property="orderNum"/>
+        <result column="spending" property="spending"/>
+        <result column="role" property="role"/>
         <result column="register_time" property="registerTime"/>
         <result column="recetly_login_time" property="recetlyLoginTime"/>
         <result column="open_id" property="openId"/>
@@ -71,7 +75,7 @@
     </select>
 
     <select id="selectAllUserInfo" resultMap="userResult">
-        SELECT * FROM user order by recetly_login_time DESC
+        SELECT phone_num,name,role,sex,order_num FROM user order by recetly_login_time DESC
     </select>
 
     <select id="selectUserByBriId" resultMap="userResult" parameterType="java.lang.Integer">
