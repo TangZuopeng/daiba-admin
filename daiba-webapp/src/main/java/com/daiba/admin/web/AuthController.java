@@ -2,7 +2,9 @@ package com.daiba.admin.web;
 
 import com.daiba.firm.model.Firm;
 import com.daiba.global.DataTableResultVO;
+import com.daiba.user.model.Address;
 import com.daiba.user.model.QualApplyUser;
+import com.daiba.user.model.User;
 import com.daiba.user.service.QualificationService;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -42,6 +46,11 @@ public class AuthController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @RequestMapping(value = "/toAuth",method = RequestMethod.GET)
+    public String lookupFirmDetail(HttpServletRequest request){
+        return "admin/auth/auth";
     }
 
 }

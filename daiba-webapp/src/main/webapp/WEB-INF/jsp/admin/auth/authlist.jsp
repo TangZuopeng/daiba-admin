@@ -121,7 +121,7 @@
                     "targets": [5],
                     "data": "phoneNum",
                     "render": function (data, type, full) {
-                        return "<a href='<%=basePath%>Admin/lookupUserDetail?phoneNum=" + data + "'>认证</a>";
+                        return "<a href='<%=basePath%>Admin/toAuth?phoneNum=" + data + "'>认证</a>";
                     }
                 }
             ]
