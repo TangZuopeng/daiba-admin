@@ -41,27 +41,27 @@
                     <tbody style="background-color: transparent;">
                         <tr>
                             <td width="20%">今日新用户数</td>
-                            <td>${todayData.reguser}</td>
+                            <td id="reguser"></td>
                         </tr>
                         <tr>
                             <td>今日登录用户数</td>
-                            <td>${todayData.login}</td>
+                            <td id="login"></td>
                         </tr>
                         <tr>
                             <td>今日发单数</td>
-                            <td>${todayData.give}</td>
+                            <td id="give"></td>
                         </tr>
                         <tr>
                             <td>今日退单数</td>
-                            <td>${todayData.back}</td>
+                            <td id="back"></td>
                         </tr>
                         <tr>
                             <td>今日总订单数</td>
-                            <td>${todayData.firmsum}</td>
+                            <td id="firmsum"></td>
                         </tr>
                         <tr>
                             <td>今日带客总收入（单位：元）</td>
-                            <td>${todayData.income*0.01}</td>
+                            <td id="income"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -72,18 +72,22 @@
 </div>
 </body>
 </html>
-<script type="text/javascript" src="<c:url value="/admin/pulgins/DataTables-1.10.11/media/js/jquery.dataTables.js"/>"></script>
 <script>
     $(function (){
         $.ajax({
-            "url": basePath + "Admin/todayData.do",
+            "url": basePath + "/Admin/todayData.do",
             "dataType": 'json',
             "type": "POST",
             "success": function (result) {
-                result.data = result.resultList;
-                fnCallback(result);
+                $("#reguser").text(result.reguser);//今日新用户数
+                $("#login").text(result.login);//今日登录用户数
+                $("#give").text(result.give);//今日发单数
+                $("#back").text(result.back);//今日退单数
+                $("#firmsum").text(result.firmsum); //今日总订单数
+                $("#income").text(result.income/100); //今日带客总收入
             },
             "error": function () {
+                alert("数据请求失败")
             }
         });
     });
