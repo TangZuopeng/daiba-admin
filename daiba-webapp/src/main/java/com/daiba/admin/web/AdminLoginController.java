@@ -29,7 +29,7 @@ public class AdminLoginController extends AdminBaseController {
     @RequestMapping(value = "/login", method = {RequestMethod.GET})
     public String login(HttpServletRequest request) {
         //设置session不活动时间为60分
-        request.getSession().setMaxInactiveInterval(60*60);
+        request.getSession().setMaxInactiveInterval(60 * 60);
         return "admin/login/login";
     }
 
@@ -42,7 +42,7 @@ public class AdminLoginController extends AdminBaseController {
      */
     @RequestMapping(value = "/login.do", method = {RequestMethod.POST})
     @ResponseBody
-    public String loginPost(HttpServletRequest request,HttpSession session) {
+    public String loginPost(HttpServletRequest request, HttpSession session) {
         Map<String, Object> loginMessages = new HashMap<String, Object>();
         int flag = adminService.login(request);
         loginMessages.put("loginMessage", flag);
@@ -51,5 +51,10 @@ public class AdminLoginController extends AdminBaseController {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @RequestMapping(value = "/logout", method = {RequestMethod.GET})
+    public String loginout(HttpServletRequest request) {
+        return "admin/login/login";
     }
 }

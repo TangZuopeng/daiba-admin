@@ -52,7 +52,7 @@
 
 <script>
     function logout() {
-        window.location.href = basePath + "logout";
+        window.location.href = basePath + "/Admin/logout";
     }
     function toHome() {
         window.location.href = basePath+ "/Admin/user";

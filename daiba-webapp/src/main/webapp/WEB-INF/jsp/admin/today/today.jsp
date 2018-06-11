@@ -17,21 +17,12 @@
                 <div class="pull-left font-16">
                     <i class="fa fa-home fa-lg"></i>
                     <a href="<%=basePath%>Admin/home">&nbsp; 首页</a>
-                    <%--<i class="fa fa-angle-right"></i>--%>
-                    <%--<a href="<%=basePath%>Admin/firm">今日数据</a>--%>
                     <i class="fa fa-angle-right"></i>
                     <a href="#">今日数据</a>
                 </div>
                 <span class="pull-right font-18" id="nowTime"></span>
             </div>
             <div class="container-fluid margin-md">
-                <a href="#">日期:<spam>2018:06:01</spam></a><br>
-                <%--<a href="#">--%>
-
-                        <%--<c:if test="${briTel!=null}">--%>
-                            <%--带客:<spam> ${briTel}</spam>--%>
-                        <%--</c:if>--%>
-                <%--</a><br>--%>
                 <table id="base-info" class="table table-responsive table-hover table-bordered">
                     <thead>
                         <tr>
