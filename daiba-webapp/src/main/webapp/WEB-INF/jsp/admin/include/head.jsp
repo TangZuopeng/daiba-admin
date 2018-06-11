@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tao
-  Date: 2016/4/13
-  Time: 18:43
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <header class="top-nav">
@@ -14,7 +7,7 @@
         <div class="nav-header">
             <a href="#" onclick="toHome()">
                 <span class="brand-name">
-                    <img src="<c:url value="/admin/images/logo.png" />" />
+                    <img style="width: 170px" height="50px" src="<c:url value="/admin/images/logo.jpg" />" />
                 </span>
             </a>
         </div>
@@ -62,7 +55,7 @@
         window.location.href = basePath + "logout";
     }
     function toHome() {
-        window.location.href = basePath;
+        window.location.href = basePath+ "/Admin/user";
     }
 </script>
 

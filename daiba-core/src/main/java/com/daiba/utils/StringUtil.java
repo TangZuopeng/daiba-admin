@@ -3,8 +3,8 @@ package com.daiba.utils;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author qiuyong
- * @date 2016/10/10.
+ * @author tinydolphin
+ * @date 2018/5/10.
  * @declare 对于一些特殊字符串可用来处理
  */
 public class StringUtil {

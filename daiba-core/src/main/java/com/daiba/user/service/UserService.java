@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * User 的Service业务逻辑层接口
- * Created by dolphinzhou on 2016/9/27.
+ * Created by tinydolphin on 2018/5/27.
  */
 public interface UserService {
     /**

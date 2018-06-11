@@ -5,7 +5,7 @@ import com.daiba.user.model.User;
 import java.util.Date;
 
 /**
- * Created by dolphinzhou on 2016/10/16.
+ * Created by tinydolphin on 2018/5/16.
  */
 public class Option {
     private int optionId;

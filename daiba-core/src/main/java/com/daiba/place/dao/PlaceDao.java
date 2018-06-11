@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * Created by dolphinzhou on 2016/10/23.
+ * Created by tinydolphin on 2018/5/23.
  */
 @MyBatisScan
 public interface PlaceDao {

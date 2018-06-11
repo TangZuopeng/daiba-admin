@@ -7,23 +7,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 /**
- * 　 　　   へ　　　 　／|
- * 　　    /＼7　　　 ∠＿/
- * 　     /　│　　 ／　／
- * 　    │　Z ＿,＜　／　　   /`ヽ
- * 　    │　　　 　　ヽ　    /　　〉
- * 　     Y　　　　　   `　  /　　/
- * 　    ｲ●　､　●　　⊂⊃〈　　/
- * 　    ()　 へ　　　　|　＼〈
- * 　　    >ｰ ､_　 ィ　 │ ／／      去吧！
- * 　     / へ　　 /　ﾉ＜| ＼＼        比卡丘~
- * 　     ヽ_ﾉ　　(_／　 │／／           消灭代码BUG
- * 　　    7　　　　　　　|／
- * 　　    ＞―r￣￣`ｰ―＿
- * ━━━━━━感觉萌萌哒━━━━━━
- *
- * @author　 penghaitao
- * @date　 2016-09-04  17:40
+ * @author　 tinydolphin
+ * @date　 2018-5-04  17:40
  * @description　 WX唯一实例
  */
 public class WX {

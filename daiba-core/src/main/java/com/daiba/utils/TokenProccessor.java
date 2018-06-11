@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 /**
- * Created by dolphinzhou on 2016/10/13.
+ * Created by tinydolphin on 2018/5/13.
  */
 public class TokenProccessor {
     /**

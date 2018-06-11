@@ -5,23 +5,8 @@ import com.daiba.order.model.Order;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * 　 　　   へ　　　 　／|
- * 　　    /＼7　　　 ∠＿/
- * 　     /　│　　 ／　／
- * 　    │　Z ＿,＜　／　　   /`ヽ
- * 　    │　　　 　　ヽ　    /　　〉
- * 　     Y　　　　　   `　  /　　/
- * 　    ｲ●　､　●　　⊂⊃〈　　/
- * 　    ()　 へ　　　　|　＼〈
- * 　　    >ｰ ､_　 ィ　 │ ／／      去吧！
- * 　     / へ　　 /　ﾉ＜| ＼＼        比卡丘~
- * 　     ヽ_ﾉ　　(_／　 │／／           消灭代码BUG
- * 　　    7　　　　　　　|／
- * 　　    ＞―r￣￣`ｰ―＿
- * ━━━━━━感觉萌萌哒━━━━━━
- *
- * @author　 penghaitao
- * @date　 2016-10-01  18:48
+ * @author　 tinydolphin
+ * @date　 2018-5-01  18:48
  * @description　 $
  */
 @MyBatisScan

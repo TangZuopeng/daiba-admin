@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * 带客信息表
- * Created by dolphinzhou on 2016/10/16.
+ * Created by tinydolphin on 2018/5/16.
  */
 public class Bringer {
     private int bringerId;

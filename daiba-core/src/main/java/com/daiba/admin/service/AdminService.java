@@ -3,7 +3,7 @@ package com.daiba.admin.service;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by dolphinzhou on 2016/10/16.
+ * Created by tinydolphin on 2018/5/16.
  */
 public interface AdminService {
     /**

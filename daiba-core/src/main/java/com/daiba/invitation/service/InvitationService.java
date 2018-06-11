@@ -3,7 +3,7 @@ package com.daiba.invitation.service;
 import java.util.List;
 
 /**
- * Created by dolphinzhou on 2016/11/12.
+ * Created by tinydolphin on 2018/5/12.
  */
 public interface InvitationService {
     /**

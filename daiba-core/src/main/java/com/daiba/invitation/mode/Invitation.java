@@ -1,7 +1,7 @@
 package com.daiba.invitation.mode;
 
 /**
- * Created by dolphinzhou on 2016/11/12.
+ * Created by tinydolphin on 2018/5/12.
  */
 public class Invitation {
 

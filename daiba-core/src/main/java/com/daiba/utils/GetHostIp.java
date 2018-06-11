@@ -4,7 +4,7 @@ package com.daiba.utils;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Tangzuopeng on 2016/9/29.
+ * Created by tinydolphin on 2018/5/29.
  */
 
 /**

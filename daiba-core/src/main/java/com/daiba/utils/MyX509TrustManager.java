@@ -6,8 +6,8 @@ import javax.net.ssl.X509TrustManager;
 
 /**
  * 信任管理器
- * @author 李欣桦
- * @date 2014-11-21下午9:15:08
+ * @author tinydolphin
+ * @date 2018-5-21 9:15:08
  */
 public class MyX509TrustManager implements X509TrustManager {
 

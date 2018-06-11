@@ -4,7 +4,7 @@ package com.daiba.dishes.model;
  * com.daiba.dishes.model
  *
  * @author TinyDolphin
- *         2017/4/7 9:35.
+ *         2018/5/7 9:35.
  */
 public class Dishes {
 

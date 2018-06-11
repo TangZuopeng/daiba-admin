@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by qiuyong on 2016/9/28.
+ * Created by tinydolphin on 2018/5/28.
  */
 @MyBatisScan
 public interface PersonalDao {

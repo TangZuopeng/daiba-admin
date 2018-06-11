@@ -3,8 +3,8 @@ package com.daiba.user.model;
 import java.util.Date;
 
 /**
- * @author qiuyong
- * @date 2016/10/6.
+ * @author tinydolphin
+ * @date 2018/5/6.
  * @declare  用户认证流水表
  */
 public class Qualification{

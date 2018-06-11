@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * 生成唯一流水号firmID
- * Created by tangzuopeng on 2016/10/31.
+ * Created by tinydolphin on 2018/5/31.
  */
 public class FirmIdSet {
 

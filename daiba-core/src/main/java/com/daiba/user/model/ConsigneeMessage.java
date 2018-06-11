@@ -1,7 +1,7 @@
 package com.daiba.user.model;
 
 /**
- * Created by qiuyong on 2016/9/28.
+ * Created by tinydolphin on 2018/5/28.
  */
 public class ConsigneeMessage {
     /**

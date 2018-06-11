@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by dolphinzhou on 2016/9/27.
+ * Created by tinydolphin on 2018/5/27.
  */
 public class User {
     private int userId;

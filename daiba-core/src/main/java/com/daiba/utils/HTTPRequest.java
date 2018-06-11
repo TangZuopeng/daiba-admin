@@ -14,23 +14,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * 　 　　   へ　　　 　／|
- * 　　    /＼7　　　 ∠＿/
- * 　     /　│　　 ／　／
- * 　    │　Z ＿,＜　／　　   /`ヽ
- * 　    │　　　 　　ヽ　    /　　〉
- * 　     Y　　　　　   `　  /　　/
- * 　    ｲ●　､　●　　⊂⊃〈　　/
- * 　    ()　 へ　　　　|　＼〈
- * 　　    >ｰ ､_　 ィ　 │ ／／      去吧！
- * 　     / へ　　 /　ﾉ＜| ＼＼        比卡丘~
- * 　     ヽ_ﾉ　　(_／　 │／／           消灭代码BUG
- * 　　    7　　　　　　　|／
- * 　　    ＞―r￣￣`ｰ―＿
- * ━━━━━━感觉萌萌哒━━━━━━
- *
- * @author　 penghaitao
- * @date　 2016-09-04  16:21
+ * @author　 tinydolphin
+ * @date　 2018-5-04  16:21
  * @description　 $
  */
 public class HTTPRequest {

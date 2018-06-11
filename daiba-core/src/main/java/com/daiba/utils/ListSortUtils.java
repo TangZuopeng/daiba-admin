@@ -9,7 +9,7 @@ import java.util.List;
  * List集合排序工具类
  * -----------------------------------------
  *
- * @author Lynch 2016年9月10日 下午3:00:45
+ * @author tinydolphin
  *         -----------------------------------------
  */
 public class ListSortUtils<T> {

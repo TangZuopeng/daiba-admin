@@ -4,7 +4,7 @@ package com.daiba.dishes.model;
  * com.daiba.dishes.model
  *
  * @author TinyDolphin
- *         2017/4/13 15:21.
+ *         2018/5/13 15:21.
  */
 public class FirmDishes {
     /**

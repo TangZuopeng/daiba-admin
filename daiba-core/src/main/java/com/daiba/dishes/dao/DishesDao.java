@@ -12,7 +12,7 @@ import java.util.Map;
  * com.daiba.dishes.dao
  *
  * @author TinyDolphin
- *         2017/4/7 9:34.
+ *         2018/5/7 9:34.
  */
 @MyBatisScan
 public interface DishesDao {

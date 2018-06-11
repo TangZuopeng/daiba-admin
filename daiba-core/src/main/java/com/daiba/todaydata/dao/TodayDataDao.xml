@@ -2,24 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD iBatis Mapper 3.0 //EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.daiba.todaydata.dao.TodayDataDao">
 
-   <!-- <select id="selectByAccount" parameterType="java.lang.String" resultMap="adminResult">
-        SELECT * FROM todayData WHERE account = #{account}
+    <select id="getTodayData" resultType="com.daiba.todaydata.model.TodayData">
+        select
+        (
+            select count(*)
+            from user
+            where to_days(register_time) &gt;= to_days(#{startTime})
+            and to_days(register_time) &lt;= to_days(#{endTime})
+        ) reguser,
+        (
+            select count(*)
+            from user
+            where to_days(recetly_login_time) &gt;= to_days(#{startTime})
+            and to_days(recetly_login_time) &lt;= to_days(#{endTime})
+        ) login,
+        (
+            select count(*)
+            from firm
+            where to_days(give_time) &gt;= to_days(#{startTime})
+            and to_days(give_time) &lt;= to_days(#{endTime})
+            and order_state != 03
+        ) give,
+        (
+            select count(*)
+            from firm
+            where to_days(give_time) &gt;= to_days(#{startTime})
+            and to_days(give_time) &lt;= to_days(#{endTime})
+            and order_state = 03
+        ) back,
+        (
+            select count(*)
+            from firm
+            where to_days(give_time) &gt;= to_days(#{startTime})
+            and to_days(give_time) &lt;= to_days(#{endTime})
+        ) firmsum,
+        (
+            select sum(order_money)
+            from firm
+            where to_days(give_time) &gt;= to_days(#{startTime})
+            and to_days(give_time) &lt;= to_days(#{endTime})
+            and order_state = 03
+        ) income;
     </select>
-
-    <update id="updateAdminTime" parameterMap="adminParameter">
-        UPDATE todayData SET recetly_login_time = #{recetlyLoginTime} WHERE admin_id = #{adminId}
-    </update>
-
-    <resultMap id="adminResult" type="Admin">
-        <id column="admin_id" property="adminId"/>
-        <result column="account" property="account"/>
-        <result column="password" property="password"/>
-        <result column="name" property="name"/>
-        <result column="phone_num" property="phoneNum"/>
-        <result column="wx" property="wx"/>
-        <result column="qq" property="qq"/>
-        <result column="email" property="email"/>
-        <result column="recetly_login_time" property="recetlyLoginTime"/>
-    </resultMap>-->
 
 </mapper>

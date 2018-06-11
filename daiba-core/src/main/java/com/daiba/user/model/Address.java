@@ -1,7 +1,7 @@
 package com.daiba.user.model;
 
 /**
- * Created by dolphinzhou on 2016/12/15.
+ * Created by tinydolphin on 2018/5/15.
  */
 
 /**

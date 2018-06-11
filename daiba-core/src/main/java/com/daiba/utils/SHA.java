@@ -3,23 +3,8 @@ package com.daiba.utils;
 import java.security.MessageDigest;
 
 /**
- * 　 　　   へ　　　 　／|
- * 　　    /＼7　　　 ∠＿/
- * 　     /　│　　 ／　／
- * 　    │　Z ＿,＜　／　　   /`ヽ
- * 　    │　　　 　　ヽ　    /　　〉
- * 　     Y　　　　　   `　  /　　/
- * 　    ｲ●　､　●　　⊂⊃〈　　/
- * 　    ()　 へ　　　　|　＼〈
- * 　　    >ｰ ､_　 ィ　 │ ／／      去吧！
- * 　     / へ　　 /　ﾉ＜| ＼＼        比卡丘~
- * 　     ヽ_ﾉ　　(_／　 │／／           消灭代码BUG
- * 　　    7　　　　　　　|／
- * 　　    ＞―r￣￣`ｰ―＿
- * ━━━━━━感觉萌萌哒━━━━━━
- *
- * @author　 penghaitao
- * @date　 2016-09-03  15:33
+ * @author　 tinydolphin
+ * @date　 2018-5-03  15:33
  * @description　 SHA 加密算法
  */
 public class SHA {

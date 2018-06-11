@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tao
-  Date: 2016/10/4
-  Time: 18:47
-  To change this template use File | Settings | File Templates.
---%>
 
 <link href="<c:url value="/css/dialog.css"/>" rel="stylesheet"/>
 

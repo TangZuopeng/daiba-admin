@@ -12,23 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 　 　　   へ　　　 　／|
- * 　　    /＼7　　　 ∠＿/
- * 　     /　│　　 ／　／
- * 　    │　Z ＿,＜　／　　   /`ヽ
- * 　    │　　　 　　ヽ　    /　　〉
- * 　     Y　　　　　   `　  /　　/
- * 　    ｲ●　､　●　　⊂⊃〈　　/
- * 　    ()　 へ　　　　|　＼〈
- * 　　    >ｰ ､_　 ィ　 │ ／／      去吧！
- * 　     / へ　　 /　ﾉ＜| ＼＼        比卡丘~
- * 　     ヽ_ﾉ　　(_／　 │／／           消灭代码BUG
- * 　　    7　　　　　　　|／
- * 　　    ＞―r￣￣`ｰ―＿
- * ━━━━━━感觉萌萌哒━━━━━━
- *
- * @author　 Tangzuopeng
- * @date　 2016-09-15  16:34
+ * @author　 tinydolphin
+ * @date　 2018-5-15  16:34
  * @description　 $
  */
 @Service("paymentService")

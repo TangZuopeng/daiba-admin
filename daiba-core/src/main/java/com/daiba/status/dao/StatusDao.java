@@ -3,7 +3,7 @@ package com.daiba.status.dao;
 import com.daiba.mybatis.MyBatisScan;
 
 /**
- * Created by dolphinzhou on 2016/10/16.
+ * Created by tinydolphin on 2018/5/16.
  */
 @MyBatisScan
 public interface StatusDao {

@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by tangzuopeng on 2016/11/6.
+ * Created by tinydolphin on 2018/5/6.
  */
 public class PayUtil {
 

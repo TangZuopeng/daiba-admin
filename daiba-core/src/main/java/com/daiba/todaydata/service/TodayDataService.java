@@ -1,7 +1,11 @@
 package com.daiba.todaydata.service;
 
+import com.daiba.todaydata.model.TodayData;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
- * Created by dolphinzhou on 2016/10/16.
+ * Created by tinydolphin on 2018/5/16.
  */
 public interface TodayDataService {
     /**
@@ -10,6 +14,6 @@ public interface TodayDataService {
      * @param request
      * @return 1-登录成功 2-账户不存在 3-账号或密码不正确
      */
-//    public int login(HttpServletRequest request);
+    public TodayData getTodayData(HttpServletRequest request);
 
 }

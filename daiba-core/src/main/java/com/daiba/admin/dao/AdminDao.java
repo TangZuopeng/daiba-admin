@@ -5,7 +5,7 @@ import com.daiba.mybatis.MyBatisScan;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * Created by dolphinzhou on 2016/10/16.
+ * Created by tinydolphin on 2018/5/16.
  */
 @MyBatisScan
 public interface AdminDao {

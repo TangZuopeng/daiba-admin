@@ -22,7 +22,7 @@ import java.util.UUID;
 
 /**
  * User 的Service业务逻辑层接口实现
- * Created by dolphinzhou on 2016/9/27.
+ * Created by tinydolphin on 2018/5/27.
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
