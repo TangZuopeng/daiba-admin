@@ -117,4 +117,27 @@ public class FirmController extends AdminBaseController{
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * 取消订单
+     *
+     * @param session
+     * @param request
+     * @return
+     */
+//    @RequestMapping(value = "/deleteFirm.do", method = {RequestMethod.POST})
+//    @ResponseBody
+//    public String deleteFirm(HttpSession session, HttpServletRequest request) {
+//        Map<String, Object> cancelMessages = new HashMap<String, Object>();
+//        String firmId = request.getParameter("firmId");
+//        String userId = request.getParameter("userId");
+//        User user = userService.getSendUserInfo(Integer.parseInt(userId));
+//        int flag = firmService.cancelFirm(firmId, user.getPhoneNum());
+//        cancelMessages.put("cancelMessage", flag);
+//        try {
+//            return objectMapper.writeValueAsString(cancelMessages);
+//        } catch (JsonProcessingException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

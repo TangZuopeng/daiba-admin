@@ -96,13 +96,11 @@
                         </tbody>
                     </table>
                 </c:if>
-
-                <input type="text" hidden="hidden" id="firmId" value="${firm.firmId}">
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success marginTB-xs">Success</button>
-        <button type="button" class="btn btn-default" id="deleteFirmBtn">删除用户</button>
+        <button type="button" class="btn btn-success marginTB-xs" id="deleteUserBtn">删除用户</button>
+        <button type="button" class="btn btn-success marginTB-xs" id="updateUserBtn">修改用户</button>
 
     </div>
 
@@ -112,13 +110,13 @@
 <script type="text/javascript" src="<c:url value="/admin/pulgins/DataTables-1.10.11/media/js/jquery.dataTables.js"/>"></script>
 <script>
     $(function (){
-        //取消订单触发的事件
-        $("#cancelFirmBtn").click(function () {
+        //修改用户触发的事件
+        $("#updateUserBtn").click(function () {
             alert(1);
         });
 
-        //删除订单触发的事件
-        $("#deleteFirmBtn").click(function(){
+        //删除用户触发的事件
+        $("#deleteUserBtn").click(function(){
             alert(2);
         });
     });

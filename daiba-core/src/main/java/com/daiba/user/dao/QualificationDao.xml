@@ -38,6 +38,12 @@
         )
     </select>
 
+    <select id="selectQualificationByStaId" resultMap="qualApplyUserResult" parameterType="java.lang.Integer">
+        SELECT q.qualification_id qualification_id,u.name name,q.apply_time apply_time,u.sex sex,u.phone_num phone_num from qualification q, user u
+        WHERE q.sta_id=#{staId} AND q.use_id = u.user_id
+        ORDER BY q.apply_time DESC
+    </select>
+
     <resultMap id="qualificationResult" type="Qualification">
         <id column="qualification_id" property="qualificationId"/>
         <result column="use_id" property="useId"/>
@@ -49,6 +55,14 @@
         <result column="sta_id" property="staId"/>
         <result column="check_time" property="checkTime" javaType="DATE"/>
         <result column="real_name" property="realName"/>
+    </resultMap>
+
+    <resultMap id="qualApplyUserResult" type="QualApplyUser">
+        <id column="qualification_id" property="qualificationId"/>
+        <result column="name" property="name"/>
+        <result column="apply_time" property="applyTime" javaType="DATE"/>
+        <result column="sex" property="sex"/>
+        <result column="phone_num" property="phoneNum"/>
     </resultMap>
 
     <resultMap id="addressResult" type="Address">
