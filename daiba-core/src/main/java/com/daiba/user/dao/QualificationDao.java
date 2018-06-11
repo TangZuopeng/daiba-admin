@@ -2,6 +2,8 @@ package com.daiba.user.dao;
 
 import com.daiba.mybatis.MyBatisScan;
 import com.daiba.user.model.Address;
+import com.daiba.user.model.QualApplyUser;
+import com.daiba.user.model.Qualification;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -43,6 +45,8 @@ public interface QualificationDao {
      * @return
      */
     public Address selectAddressByBriId(@Param("briId") int briId);
+
+    public List<QualApplyUser> selectQualificationByStaId(@Param("staId") int staId);
 
 
 

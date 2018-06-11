@@ -36,7 +36,7 @@
                 </li>
                 <%--任务一览--%>
                 <li class="bg-palette4">
-                    <a href="<%=basePath%>info/task">
+                    <a href="<%=basePath%>Admin/auth">
                         <span class="menu-content block">
                             <span class="menu-icon"><i class="block fa fa-desktop fa-lg"></i></span>
                             <span class="text m-left-sm">认证</span>
