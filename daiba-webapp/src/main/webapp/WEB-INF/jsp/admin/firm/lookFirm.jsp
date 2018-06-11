@@ -274,9 +274,34 @@
             });
         });
 
+        function deleteFirm() {
+            $.ajax({
+                url: basePath + "/Admin/deleteFirm.do",
+                data: {
+                    firmId: "${firm.firmId}",
+                },
+                dataType: "json",
+                type: "POST",
+                async: false,
+                success: function (result) {
+                    if (result) {
+                        alert("删除订单成功！");
+                    } else {
+                        alert("删除订单失败！");
+                    }
+                },
+                error: function () {
+                    alert("删除订单失败！");
+                }
+            });
+        }
+
         //删除订单触发的事件
         $("#deleteFirmBtn").click(function(){
-            alert(2);
+            var flag = confirm("你确定删除该订单吗？");
+            if (flag) {
+                deleteFirm();
+            }
         });
     });
 </script>
